@@ -1,0 +1,23 @@
+DevOps:
+-------
+1. Source Code Repository
+	a. git
+	b. github
+	c. bitbucket
+2. Deployment (CI/CD Pipelines)
+	a. Jenkins
+	b. Harness
+	c. GitLab
+	d. Azure DevOps
+3. Container Orchestration
+	a. Docker
+	b. Kubernetes
+	c. Azure Kubernetes Services
+4. Monitoring (Logging & Visualization)
+	a. Splunk
+	b. Grafana
+	c. Dynatrace
+5. Automation
+	a. Ansible
+	b. Terraform
+6. Vulnerabilty Reporting & Remediation (DevSecOps) 

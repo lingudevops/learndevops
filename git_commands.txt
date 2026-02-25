@@ -1,0 +1,6 @@
+git init <Repository> -> Initialize the Git Repository
+git clone https://github.com/lingudevops/learndevops.git  -> Clone the remote repository locally
+git status -> check the status of git repository
+git log -> display git log for the respository
+git add <filename> -> add untrackec file to git repository
+

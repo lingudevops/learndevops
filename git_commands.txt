@@ -3,4 +3,4 @@ git clone https://github.com/lingudevops/learndevops.git  -> Clone the remote re
 git status -> check the status of git repository
 git log -> display git log for the respository
 git add <filename> -> add untrackec file to git repository
-
+git cat-file -p 08dd6948a1575d8ca05ed590e28bd5f948121c96 -> Read the encrypted SHA file

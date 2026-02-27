@@ -5,9 +5,9 @@ docker run <image_name> sleep 5				# append a command - start the container and 
 docker pull <image_name>				# pull the image from Docker Hub and keep it in local host
 docker ps						# list the active containers
 docker ps -a						# list all the containers including one in exited state
-docker image						# list all images that are stored locally
+docker image ls						# list all images that are stored locally
 docker stop <conatiner_name> or <container_id>		# stop the container
 docker rm <container_name> or <container_id>		# remove the container
 docker rmi <image_name>					# remove the images that is stored locally
 docker exec <command>					# execute a command on the container
-docker 
+

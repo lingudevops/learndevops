@@ -16,3 +16,11 @@ docker rmi <image_name>					# remove the images that is stored locally
 docker exec <command>					# execute a command on the container
 docker inspect <container_name>				# list the details of a container in json format
 docker logs <container_name>				# displays log of the container wirtten to STDOUT
+
+#Dcoker Build and Deploy Commands
+
+docker build -t first_py:version4 .						# build package using docker file
+docker login									# login to docker image registry
+docker run -p 8081:8081 -d --name lingu_devops lingudevops/first_py:version4	# create and run container using docker image
+docker tag first_py:version4 lingudevops/first_py:version4			# tag local image to the hub image
+docker push lingudevops/first_py:version4					# push local image to docker hub

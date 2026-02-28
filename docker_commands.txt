@@ -1,5 +1,9 @@
 docker run <image_name>					# starts the container with the image (attach/foreground mode by default)
 docker run -d <image_name>				# starts the container with the image in detach or background mode - good for starting services like webservices
+docker run -it <image_name>				# starts the container with interactive mode; i - interactive, t - terminal
+docker run -p <docker_host_port:container_port> <image>	# starts the container with port mapping to access the container outside docker host
+docker run -v <docker_host_vol:container_volume>	# starts the container with volume mapping to persist data if the container is destroyed
+docker run -e <VARIABLE=value> <image>			# starts the container with the environment variables; use 'docker inspect' to get the details of the variables set for the container
 docker attach <conatiner_id>				# bring the container to foreground/attach mode
 docker run <image_name> sleep 5				# append a command - start the container and sleeps for 5 secs
 docker pull <image_name>				# pull the image from Docker Hub and keep it in local host
@@ -10,4 +14,5 @@ docker stop <conatiner_name> or <container_id>		# stop the container
 docker rm <container_name> or <container_id>		# remove the container
 docker rmi <image_name>					# remove the images that is stored locally
 docker exec <command>					# execute a command on the container
-
+docker inspect <container_name>				# list the details of a container in json format
+docker logs <container_name>				# displays log of the container wirtten to STDOUT

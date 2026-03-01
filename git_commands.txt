@@ -1,6 +1,21 @@
-git init <Repository> -> Initialize the Git Repository
-git clone https://github.com/lingudevops/learndevops.git  -> Clone the remote repository locally
-git status -> check the status of git repository
-git log -> display git log for the respository
-git add <filename> -> add untrackec file to git repository
-git cat-file -p 08dd6948a1575d8ca05ed590e28bd5f948121c96 -> Read the encrypted SHA file
+git init <Repository> 								# Initialize the Git Repository
+git clone https://github.com/lingudevops/learndevops.git  			# Clone the remote repository locally
+git status 									# Check the status of git repository
+git log 									# Display git log for the respository
+git add <filename> 								# Add untrackec file to git repository
+git cat-file -p 08dd6948a1575d8ca05ed590e28bd5f948121c96 			# Read the encrypted SHA file
+git config --global alias.<alias_name> "git command"				# Create Aliases for Git Commands
+git config --list								# List git config
+
+# formatting git log
+
+git log --pretty=format:"%h - %an : %ar - %s"					#%h hash, %an author name, %ar author relative time, %s commit text, %ad author date
+git log --pretty=short
+git log --pretty-oneline
+git log -5									#display last 5 commits
+git log --since="2 days ago"
+git log --since="2026-02-25"
+git log --since="3 hours ago"
+git log --since="1 week ago"
+git log --since="1 week ago" --pretty=format:"%h - %an"
+git config --global alias.lgsimp "log --pretty=format:'%h - %an : %ar - %s'"	

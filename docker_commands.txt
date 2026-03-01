@@ -1,3 +1,5 @@
+# Common Docker Commands
+
 docker run <image_name>					# starts the container with the image (attach/foreground mode by default)
 docker run -d <image_name>				# starts the container with the image in detach or background mode - good for starting services like webservices
 docker run -it <image_name>				# starts the container with interactive mode; i - interactive, t - terminal
@@ -17,6 +19,8 @@ docker exec <command>					# execute a command on the container
 docker inspect <container_name>				# list the details of a container in json format
 docker logs <container_name>				# displays log of the container wirtten to STDOUT
 
+---
+
 #Dcoker Build and Deploy Commands
 
 docker build -t first_py:version4 .						# build package using docker file
@@ -24,3 +28,28 @@ docker login									# login to docker image registry
 docker run -p 8081:8081 -d --name lingu_devops lingudevops/first_py:version4	# create and run container using docker image
 docker tag first_py:version4 lingudevops/first_py:version4			# tag local image to the hub image
 docker push lingudevops/first_py:version4					# push local image to docker hub
+
+---
+
+#Docker buildx for building images for multiple architectures
+
+By default docker buildkit uses 'docker' driver which does not support the multiple architecture images build, so we need 'docker-container' driver.
+Below commands to create build instance with new driver (--driver option: docker, docker-container, kubernetes, remote)  
+
+
+docker buildx ls											# list all builder instances
+docker buildx create --name multiarch --driver docker-container --use					# create new builder insntace
+docker buildx inspect --bootstrap									# start builder instance
+docker buildx ls											# list builder instance
+docker buildx build --platform linux/amd64,linux/arm64 -t lingudevops/first_py:version5 --push .	# push multi architecture images to docker hub
+docker context use <builder_name>									# switch build instance
+docker buildx stop <builder_name>									# stop build instance
+docker buildx inspect <builder_name> --bootstrap							# start build instance			
+docker buildx rm <builder_name>										# remove build instance - this will remove the container
+
+Note: Build instance with driver run as a container, so when you create a build instance for a driver, it pulls the image and start a conatiner
+Example: Image for docker-container driver: moby/buildkit:buildx-stable-1 and you can see the running container using 'docker ps -a'						
+To update 'docker-container' driver remove the insatnce and recreate with latest image
+---
+
+	

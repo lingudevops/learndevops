@@ -22,4 +22,16 @@ git log --since="2026-02-25"
 git log --since="3 hours ago"
 git log --since="1 week ago"
 git log --since="1 week ago" --pretty=format:"%h - %an"
-git config --global alias.lgsimp "log --pretty=format:'%h - %an : %ar - %s'"	
+git config --global alias.lgsimp "log --pretty=format:'%h - %an : %ar - %s'"
+
+# git branch, switch, merge, revert, reset
+git branch -M main								# rename branch (master to main)
+git branch feature1								# create a branch
+git switch feature1								# switch to a branch
+git switch -c feature1								# create and switch to a branch in one line command
+git merge feature1								# merge branch to main - execute it from main branch
+git checkout <commit hash>							# checkout commit - detatched HEAD
+git switch --detach <commit>							# same as above - works in latest versions
+git revert									# revert - create a new commit which is undo of a reveretd commit - keeps history
+git reset									# reset moves back to the previous commit - cleans up history
+	
